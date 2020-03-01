@@ -1,4 +1,4 @@
-//Canvas setup
+//Uppsetningin á canvas
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 const width = canvas.width = window.innerWidth;
@@ -108,7 +108,7 @@ class Ball {
   }
 }
 
-//Box klassinn
+//Box klassinn (búinn til úr Ball klassanum)
 class Box extends Ball{
    constructor(x, y, velX, velY, color, size, shape){
     super(x, y, velX, velY, color, size)
@@ -124,24 +124,22 @@ class Box extends Ball{
   }
 }
 
-//Arrays sem geymir öll form
-var balls = [];
-var boxes = [];
-
-//Loop sem teiknar scene-ið aftur og aftur
+//Lukkja sem teiknar scene-ið aftur og aftur
 function loop() {
   ctx.fillStyle = 'rgba(0,0,0,0.25)';
   ctx.fillRect(0,0,width,height);
 
+  //Texti sem er í efri vinstra horni sem segir notandanum hversu marga bolta hann hefur búið til
   ctx.font = "30px Arial";
   ctx.fillStyle = "white";
   ctx.fillText("Balls spawned: " + spawnedBalls, 10, 50);
 
+  //Lykkja sem fer í gegnum all a hlutina og teiknar þá, færir þá og prófar hvort einhverjir eru að klessast, aftur og aftur
   for(let i = 0; i < allShapes.length; i++) {
     allShapes[i].draw();
     allShapes[i].update();
     allShapes[i].collisionDetect();
   }
-  requestAnimationFrame(loop);
+  requestAnimationFrame(loop); //Lætur vafran vita að það séi verið að gera animation 
 }
-loop();
+loop(); //keyrir lykkjuna aftur og aftur
