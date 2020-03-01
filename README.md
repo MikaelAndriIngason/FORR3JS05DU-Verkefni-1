@@ -1,4 +1,4 @@
-# FORR3JS05DU-Verkefni-1
+# FORR3JS05DU - Verkefni 1
 
 Til að byrja þá smellir maður bara á skjáinn til að búa til bolta.
 
